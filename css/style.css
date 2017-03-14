@@ -12,7 +12,9 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
-html, body, .wrap {
+.wrap,
+body,
+html {
   min-height: 100%; }
 
 body {
@@ -46,7 +48,7 @@ body {
 .social group {
   width: 120px;
   margin: 0 auto; }
-  .social group .social-icon {
+  .social group a {
     float: left;
     width: 25px;
     height: 25px;
@@ -76,22 +78,15 @@ body {
         top: 0;
         left: 0;
         height: 18px;
-        display: block;
-        background: url("../images/nav-sprite.png") no-repeat; }
-        @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
-          .social group .menus h3:before {
-            background: url("../images/nav-sprite@2x.png") no-repeat;
-            background-size: 49px 18px; } }
-      .social group .menus h3.about {
-        color: #27b599; }
-        .social group .menus h3.about:before {
-          width: 17px;
-          background-position: -15px 0; }
-      .social group .menus h3.contact {
-        color: #088ecc; }
-        .social group .menus h3.contact:before {
-          width: 17px;
-          background-position: -32px 0; }
+        display: block; }
+
+.about {
+  color: #27b599;
+  padding: 0 0 0 1em; }
+
+.contact {
+  color: #088ecc;
+  padding: 0 0 0 1em; }
 
 ul {
   list-style: none;
@@ -112,21 +107,22 @@ ul {
         margin: 0 0 0 25px;
         display: block;
         width: auto; } }
-  ul li a {
-    color: #5e5e5e;
-    text-decoration: none;
+
+a {
+  color: #5e5e5e;
+  text-decoration: underline;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  transition: color 0.4s ease; }
+  a.current-menu-item, a:hover {
+    color: #d35136;
     -webkit-transition: color 0.4s ease;
     -moz-transition: color 0.4s ease;
     -o-transition: color 0.4s ease;
     -ms-transition: color 0.4s ease;
     transition: color 0.4s ease; }
-    ul li a.current-menu-item, ul li a:hover {
-      color: #FFF;
-      -webkit-transition: color 0.4s ease;
-      -moz-transition: color 0.4s ease;
-      -o-transition: color 0.4s ease;
-      -ms-transition: color 0.4s ease;
-      transition: color 0.4s ease; }
 
 .fa {
   color: #5e5e5e;
@@ -137,7 +133,7 @@ ul {
   -ms-transition: color 0.4s ease;
   transition: color 0.4s ease; }
   .fa.current-menu-item, .fa:hover {
-    color: #FFF;
+    color: #d35136;
     -webkit-transition: color 0.4s ease;
     -moz-transition: color 0.4s ease;
     -o-transition: color 0.4s ease;
@@ -213,40 +209,14 @@ ul {
     width: auto;
     height: auto; }
 
-div.loading {
-  color: #c4c4c4;
-  position: absolute;
-  width: 100px;
-  bottom: 15px;
-  left: 50%;
-  margin-left: -50px; }
-  div.loading img {
-    vertical-align: middle; }
-    div.loading img.rotate {
-      -webkit-animation-name: rotate;
-      -ms-animation-name: rotate;
-      animation-name: rotate;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-iteration-count: infinite;
-      -ms-animation-iteration-count: infinite;
-      animation-iteration-count: infinite;
-      -webkit-animation-timing-function: linear;
-      -ms-animation-timing-function: linear;
-      animation-timing-function: linear; }
-
-@-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-    -webkit-transform-origin: center center;
-    transform-origin: center center; } }
-
-@keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-    -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
-    transform-origin: center center; } }
+.icon::before {
+  display: inline-block;
+  margin-right: 0.5em;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0); }

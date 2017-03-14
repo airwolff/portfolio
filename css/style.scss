@@ -6,20 +6,16 @@ $red: #d35136;
 $green: #27b599;
 $blue: #088ecc;
 $darkblue: #11171c;
-
 $padding: 10px;
 $margin: 10px;
 $main-width: 1000px;
-
 $font-size: 14px;
 $font-family: 'Lato', sans-serif;
 $line-height: 1.4;
-
 $break-four: 1050px;
 $break-three: 760px;
 $break-two: 520px;
 $break-one: 360px;
-
 @import url( 'http://fonts.googleapis.com/css?family=Lato:300,400,700');
 @import url( 'normalize.css'); //Utilities
 
@@ -37,7 +33,9 @@ $break-one: 360px;
     box-sizing: border-box;
 }
 
-html, body, .wrap {
+.wrap,
+body,
+html {
     min-height: 100%;
 }
 
@@ -81,11 +79,11 @@ body {
     }
 }
 
-.social group{
+.social group {
     width: 120px;
     margin: 0 auto;
 
-    .social-icon {
+    a {
         float: left;
         width: 25px;
         height: 25px;
@@ -121,32 +119,19 @@ body {
                 left: 0;
                 height: 18px;
                 display: block;
-                background: url("../images/nav-sprite.png") no-repeat;
-                @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
-                    background: url("../images/nav-sprite@2x.png") no-repeat;
-                    background-size: 49px 18px;
-                }
-            }
-
-            &.about {
-                color: $green;
-
-                &:before {
-                    width: 17px;
-                    background-position: -15px 0;
-                }
-            }
-
-            &.contact {
-                color: $blue;
-
-                &:before {
-                    width: 17px;
-                    background-position: -32px 0;
-                }
             }
         }
     }
+}
+
+.about {
+    color: $green;
+    padding: 0 0 0 1em;
+}
+
+.contact {
+    color: $blue;
+    padding: 0 0 0 1em;
 }
 
 ul {
@@ -170,27 +155,25 @@ ul {
             width: auto;
         }
     }
+}
 
-    li {
-        a {
-            color: $darkgrey;
-            text-decoration: none;
-            -webkit-transition: color 0.4s ease;
-            -moz-transition: color 0.4s ease;
-            -o-transition: color 0.4s ease;
-            -ms-transition: color 0.4s ease;
-            transition: color 0.4s ease;
+a {
+    color: $darkgrey;
+    text-decoration: underline;
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    -o-transition: color 0.4s ease;
+    -ms-transition: color 0.4s ease;
+    transition: color 0.4s ease;
 
-            &.current-menu-item,
-            &:hover {
-                color: $white;
-                -webkit-transition: color 0.4s ease;
-                -moz-transition: color 0.4s ease;
-                -o-transition: color 0.4s ease;
-                -ms-transition: color 0.4s ease;
-                transition: color 0.4s ease;
-            }
-        }
+    &.current-menu-item,
+    &:hover {
+        color: $red;
+        -webkit-transition: color 0.4s ease;
+        -moz-transition: color 0.4s ease;
+        -o-transition: color 0.4s ease;
+        -ms-transition: color 0.4s ease;
+        transition: color 0.4s ease;
     }
 }
 
@@ -205,7 +188,7 @@ ul {
 
     &.current-menu-item,
     &:hover {
-        color: $white;
+        color: $red;
         -webkit-transition: color 0.4s ease;
         -moz-transition: color 0.4s ease;
         -o-transition: color 0.4s ease;
@@ -290,7 +273,6 @@ ul {
     background: $white;
     border-left: 1px solid darken($grey, 10%);
     text-align: center;
-
     @media screen and (min-width: $break-three) {
         float: left;
         width: 70%;
@@ -310,49 +292,13 @@ ul {
     }
 }
 
-div.loading {
-    color: darken($grey, 20%);
-    position: absolute;
-    width: 100px;
-    bottom: 15px;
-    left: 50%;
-    margin-left: -50px;
-
-    img {
-        vertical-align: middle;
-
-        &.rotate {
-            -webkit-animation-name: rotate;
-            -ms-animation-name: rotate;
-            animation-name: rotate;
-            -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-iteration-count: infinite;
-            -ms-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-timing-function: linear;
-            -ms-animation-timing-function: linear;
-            animation-timing-function: linear;
-        }
-    }
-}
-
-@-webkit-keyframes rotate {
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-        -webkit-transform-origin: center center;
-        transform-origin: center center;
-    }
-}
-
-@keyframes rotate {
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-        -webkit-transform-origin: center center;
-        -ms-transform-origin: center center;
-        transform-origin: center center;
-    }
+.icon::before {
+    display: inline-block;
+    margin-right: 0.5em;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
 }
